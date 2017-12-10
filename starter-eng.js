@@ -1,6 +1,6 @@
 var X_TASK_DOMAIN = 'https://xtask.tech/',
-	X_TASK_PATH_TO_SCRIPT = X_TASK_DOMAIN + 'bundles/core-eng.js',
-	X_TASK_PATH_TO_STYLE =  X_TASK_DOMAIN + 'bundles/styles.css';
+	X_TASK_PATH_TO_SCRIPT = X_TASK_DOMAIN + 'scripts/core-eng.js',
+	X_TASK_PATH_TO_STYLE =  X_TASK_DOMAIN + 'scripts/styles.css';
 	
 var XTaskScriptLoader = new (function() {
 	var script;
