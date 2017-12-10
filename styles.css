@@ -481,6 +481,7 @@
   width: 100% !important;
   border-spacing: 0 !important;
   border-collapse: collapse !important;
+  table-layout: fixed !important;
 }
 
 .x-task-table th {
