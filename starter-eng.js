@@ -1,4 +1,5 @@
 var X_TASK_DOMAIN = 'https://xtask.tech/',
+	X_TASK_DOMAIN_MAIN_BOX = '.x-task-main-box',
 	X_TASK_PATH_TO_SCRIPT = X_TASK_DOMAIN + 'scripts/core-eng.js',
 	X_TASK_PATH_TO_STYLE =  X_TASK_DOMAIN + 'scripts/styles.css';
 	
@@ -60,12 +61,7 @@ var XTaskCssLoader = new (function() {
 				}
 				if (keyword == KEYWORD) {
 					if (activated) {
-						localStorage.removeItem(STORE_KEY);
-						if (typeof XTask != 'undefined') {
-							XTask.dispose();
-						}
-						XTaskScriptLoader.dispose();
-						XTaskCssLoader.dispose();
+						dispose();
 					} else {
 						localStorage.setItem(STORE_KEY, '1');
 						load();
@@ -80,6 +76,16 @@ var XTaskCssLoader = new (function() {
 	function load() {
 		XTaskScriptLoader.load('bundle');
 		XTaskCssLoader.load('bundle');
+	}
+
+	function dispose() {
+		var box = document.querySelector(X_TASK_DOMAIN_MAIN_BOX);
+		if (box) {
+			document.body.removeChild(box);
+		}
+		localStorage.removeItem(STORE_KEY);
+		XTaskScriptLoader.dispose();
+		XTaskCssLoader.dispose();
 	}
 
 	if (activated) {
